@@ -1,6 +1,6 @@
 package se.jfs.kata;
 
-public class FizzBuzz {
+public class    FizzBuzz {
 
 
     public String getOutput(int i) {
@@ -18,5 +18,15 @@ public class FizzBuzz {
             return "Buzz";
         }
         return i + "";
+    }
+
+    public String getValues(int[] input) {
+        StringBuilder sb = new StringBuilder();
+        for (int number : input) {
+            String result = getOutput(number);
+            // System.out.println(result);
+            sb.append(result + " ");
+        }
+        return sb.toString().strip();
     }
 }

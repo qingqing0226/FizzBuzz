@@ -1,6 +1,9 @@
 package se.jfs.kata;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+
+import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -41,6 +44,22 @@ class FizzBuzzTest {
     void shouldReturnErrorMessageForNumberOver100() {
         String result = fizzBuzz.getOutput(101);
         assertEquals("101 ... Please provide a number below 100", result);
+    }
+
+    @Test
+    void shouldReturnCorrectValuesForArray() {
+        String result = fizzBuzz.getValues(new int[] {2, 3, -4, 5, 15, 800});
+        String expected = "2 Fizz -4 ... Please provide a positive number. Try again Buzz FizzBuzz 800 ... Please provide a number below 100";
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    void shouldReturnAllValues() {
+        String result = fizzBuzz.getValues(IntStream.range(1, 101).toArray());
+        String expected = fizzBuzz.getValues(IntStream.range(1, 101).toArray());
+
+        assertEquals(expected, result);
     }
 
 }
